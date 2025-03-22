@@ -13,6 +13,7 @@ import { RxCaretLeft } from 'react-icons/rx';
 import { RxCaretRight } from 'react-icons/rx';
 import { HiHome } from 'react-icons/hi';
 import { BiSearch } from 'react-icons/bi';
+import { FaCloudUploadAlt } from "react-icons/fa";
 
 import { useRouter } from 'next/navigation';
 
@@ -91,6 +92,14 @@ export const Header: React.FC<HeaderProps> = ({ children, className }) => {
           >
             <HiHome className="text-black" size={20} />
           </button>
+
+          <button
+            onClick={() => router.push('/')}
+            className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition"
+          >
+            <FaCloudUploadAlt className="text-black" size={20} />
+          </button>
+
           <button
             onClick={() => router.push('/search')}
             className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition"
