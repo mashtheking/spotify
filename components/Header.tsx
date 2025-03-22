@@ -5,7 +5,7 @@ import { Button } from './Button';
 import { usePlayer } from '@/hooks/usePlayer';
 import { useUser } from '@/hooks/useUser';
 import { useAuthModal } from '@/hooks/useAuthModal';
-import { useUploadModal } from '@/hooks/useAuthModal';
+import { useUploadModal } from '@/hooks/useUploadModal';
 
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
