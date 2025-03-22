@@ -19,7 +19,7 @@ const font = Figtree({ subsets: ['latin'] });
 
 //* Describe the web app
 export const metadata = {
-  title: 'Spotify Clone',
+  title: 'Mziki.co.ke',
   description: 'Listen to music!',
 };
 
