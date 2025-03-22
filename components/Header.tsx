@@ -5,6 +5,7 @@ import { Button } from './Button';
 import { usePlayer } from '@/hooks/usePlayer';
 import { useUser } from '@/hooks/useUser';
 import { useAuthModal } from '@/hooks/useAuthModal';
+import { useUploadModal } from '@/hooks/useAuthModal';
 
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
@@ -31,6 +32,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ children, className }) => {
   //* Use custom hooks and utilities.
   const authModal = useAuthModal();
+const uploadModal = useUploadModal();
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
   const { user } = useUser();
@@ -94,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({ children, className }) => {
           </button>
 
           <button
-            onClick={() => router.push('/')}
+            onClick={uploadModal.onOpen}
             className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition"
           >
             <FaCloudUploadAlt className="text-black" size={20} />
