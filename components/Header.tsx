@@ -95,12 +95,7 @@ const uploadModal = useUploadModal();
             <HiHome className="text-black" size={20} />
           </button>
 
-          <button
-            onClick={uploadModal.onOpen}
-            className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition"
-          >
-            <FaCloudUploadAlt className="text-black" size={20} />
-          </button>
+    
 
           <button
             onClick={() => router.push('/search')}
@@ -121,6 +116,13 @@ const uploadModal = useUploadModal();
               <Button onClick={handleLogout} className="bg-white px-6 py-2">
                 Logout
               </Button>
+      <button
+            onClick={uploadModal.onOpen}
+            className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition"
+          >
+            <FaCloudUploadAlt className="text-black" size={20} />
+          </button>
+
               <Button onClick={() => router.push('/account')} className="bg-white">
                 <FaUserAlt />
               </Button>
