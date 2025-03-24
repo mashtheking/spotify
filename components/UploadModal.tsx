@@ -71,7 +71,7 @@ export const UploadModal = () => {
 
       //* Upload image to Supabase storage
       const { data: imageData, error: imageError } = await supabaseClient.storage
-        .from('images')
+        .from('public/images')
         .upload(`image-${values.title}-${uniqueID}`, imageFile, {
           cacheControl: '3600',
           upsert: false,
@@ -83,7 +83,7 @@ export const UploadModal = () => {
       }
 
       //* Insert new song record in the Supabase 'songs' table
-      const { error: supabaseError } = await supabaseClient.from('songs').insert({
+      const { error: supabaseError } = await supabaseClient.from('public/songs').insert({
         user_id: user.id,
         title: values.title,
         author: values.author,
