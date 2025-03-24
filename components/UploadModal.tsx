@@ -89,6 +89,7 @@ export const UploadModal = () => {
         author: values.author,
         image_path: imageData.path,
         song_path: songData.path,
+        package: values.package,
       });
 
       if (supabaseError) {
@@ -149,6 +150,14 @@ export const UploadModal = () => {
             {...register('image', { required: true })}
           />
         </div>
+        <div>
+          <div className="pb-1">Free or Premium</div>
+        <select name="package" id="package">
+  <option value="free">Free</option>
+  <option value="premium">Premium</option>
+</select>
+          </div>
+      
         <Button disabled={isLoading} type="submit">
           Create
         </Button>
