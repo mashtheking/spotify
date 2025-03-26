@@ -1,3 +1,4 @@
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { Song } from '@/types';
 import { usePlayer } from './usePlayer';
 import { useAuthModal } from './useAuthModal';
@@ -6,6 +7,7 @@ import { useSubscribeModal } from './useSubscribeModal';
 import { useGetSongById} from './useGetSongById';
 
 export const useOnPlay = (songs: Song[]) => {
+  const supabaseClient = useSupabaseClient();
   const subscribeModal = useSubscribeModal();
   const player = usePlayer();
   const authModal = useAuthModal();
@@ -15,7 +17,16 @@ export const useOnPlay = (songs: Song[]) => {
     if (!user) {
       return authModal.onOpen();
     }
-const infor = useGetSongById(id);
+
+
+
+
+
+  const { data: songData } = supabaseClient.storage.from('songs').getPublicUrl(song.song_path);
+
+  return songData.publicUrl;
+
+    
     if (!subscription && infor.song.package != 'free') {
       return subscribeModal.onOpen();
     }
