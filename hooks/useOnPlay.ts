@@ -22,7 +22,7 @@ export const useOnPlay = (songs: Song[]) => {
   const usePlay = (id: string) => {
 
          const fetchSong = async () => {
-     const { data, error } = await supabaseClient.from('songs').select('*').eq('id', id).single();
+     const { data, error } = await supabaseClient.from('songs').select('*').eq('id', song.id).single();
 
       if (error) {
         return
