@@ -1,4 +1,5 @@
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import { useState } from 'react';
 import { Song } from '@/types';
 import { usePlayer } from './usePlayer';
 import { useAuthModal } from './useAuthModal';
