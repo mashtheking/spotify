@@ -3,7 +3,6 @@
 import { Song } from '@/types';
 
 import { PlayButton } from './PlayButton';
-import { PackageButton } from './PackageButton';
 
 import Image from 'next/image';
 
@@ -62,7 +61,25 @@ export const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
         <PlayButton />
       </div>
         <div className="absolute bottom-24 left-5">
-        <PackageButton />
+        <button
+      className="
+        transition 
+        opacity-0 
+        rounded-full 
+        flex 
+        items-center
+      bg-green-500 
+        p-4
+        drop-shadow-md
+        translate 
+        translate-y-1/4
+        group-hover:opacity-100
+        group-hover:translate-y-0
+        hover:scale-110
+        "
+    >
+      {data.package}
+    </button>
       </div>
     </div>
   );
