@@ -37,7 +37,7 @@ export const useOnPlay = (songs: Song[]) => {
   const authModal = useAuthModal();
   const { user, subscription } = useUser();
   const usePlay = (id: string) => {
-fetchSong(io);
+fetchSong(id);
       player.setId(id);
     player.setIds(songs.map((song) => song.id));
   };
