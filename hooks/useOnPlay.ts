@@ -9,7 +9,24 @@ import { useGetSongById} from './useGetSongById';
 export const useOnPlay = (songs: Song[]) => {
   const supabaseClient = useSupabaseClient();
   
- const { songData, error } = await supabaseClient.from('songs').select('*').eq('id', id).single();
+
+
+
+    const fetchSong = async () => {
+      const { songData, error } = await supabaseClient.from('songs').select('*').eq('id', id).single();
+
+      if (error) {
+        
+        const error = error.message;
+      }
+      setSong(songData as Song);
+     
+    };
+
+    fetchSong();
+
+
+
   
   const subscribeModal = useSubscribeModal();
   const player = usePlayer();
