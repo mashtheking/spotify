@@ -15,8 +15,8 @@ export const useOnPlay = (songs: Song[]) => {
     if (!user) {
       return authModal.onOpen();
     }
-const infor = await useGetSongById(id);
-    if (!subscription && info.package != 'free') {
+const infor = useGetSongById(id);
+    if (!subscription && infor.package != 'free') {
       return subscribeModal.onOpen();
     }
     
