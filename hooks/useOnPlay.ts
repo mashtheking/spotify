@@ -9,7 +9,7 @@ import { useGetSongById} from './useGetSongById';
 
 export const useOnPlay = (songs: Song[]) => {
   const supabaseClient = useSupabaseClient();
-        const [songD, setSong] = useState<Song | undefined>(undefined);
+        const [songD, setSong] = useState<Song || ""  ;
 
 
 
