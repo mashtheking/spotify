@@ -10,7 +10,7 @@ import { useGetSongById} from './useGetSongById';
 export const useOnPlay = (songs: Song[]) => {
   const supabaseClient = useSupabaseClient();
         const [songD, setSong] = useState<Song[]>([
-    [0, 0, 0, 0, 0, 0, 0]) ;
+    [0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0]) ;
 
 
 
