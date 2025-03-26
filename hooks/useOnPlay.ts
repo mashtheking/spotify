@@ -29,6 +29,9 @@ export const useOnPlay = (songs: Song[]) => {
     if (!subscription && data.package != 'free') {
       return subscribeModal.onOpen();
     }
+
+       player.setId(id);
+    player.setIds(songs.map((song) => song.id));
     };
 
     
@@ -44,8 +47,7 @@ export const useOnPlay = (songs: Song[]) => {
     fetchSong(id);
     
     
-    player.setId(id);
-    player.setIds(songs.map((song) => song.id));
+   
   };
   return usePlay;
 };
