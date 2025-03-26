@@ -16,7 +16,7 @@ export const useOnPlay = (songs: Song[]) => {
       return authModal.onOpen();
     }
 const infor = useGetSongById(id);
-    if (!subscription && infor.package != 'free') {
+    if (!subscription && infor.song.package != 'free') {
       return subscribeModal.onOpen();
     }
     
