@@ -20,7 +20,6 @@ export const useOnPlay = (songs: Song[]) => {
 
       if (error) {
         
-        const error = error.message;
       }
       setSong(data as Song);
      
