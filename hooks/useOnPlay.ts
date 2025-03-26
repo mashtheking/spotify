@@ -11,11 +11,6 @@ import { useState } from "react"
 export const useOnPlay = (songs: Song[]) => {
   const [package, setPackage] = useState<boolean>(false) ;
   const supabaseClient = useSupabaseClient();
-      
- 
-    
-    
-    };
 
          const fetchSong = async (id: string) => {
      const { data, error } = await supabaseClient.from('songs').select('*').eq('id', id).single();
@@ -45,5 +40,6 @@ export const useOnPlay = (songs: Song[]) => {
   const usePlay = (id: string) => {
 fetchSong(id);
   };
+
   return usePlay;
 };
