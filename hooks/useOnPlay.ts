@@ -12,21 +12,12 @@ export const useOnPlay = (songs: Song[]) => {
   const [package, setPackage] = useState<boolean>(false) ;
   const supabaseClient = useSupabaseClient();
       
-  const fetchSong = async (id: string) => {
+ 
     
     
     };
 
-    
-  
-
-
-  
-  const subscribeModal = useSubscribeModal();
-  const player = usePlayer();
-  const authModal = useAuthModal();
-  const { user, subscription } = useUser();
-  const usePlay = (id: string) => {
+         const fetchSong = async (id: string) => {
      const { data, error } = await supabaseClient.from('songs').select('*').eq('id', id).single();
 
       if (error) {
@@ -42,7 +33,17 @@ export const useOnPlay = (songs: Song[]) => {
 
        player.setId(id);
     player.setIds(songs.map((song) => song.id));
-   
+     }
+  
+
+
+  
+  const subscribeModal = useSubscribeModal();
+  const player = usePlayer();
+  const authModal = useAuthModal();
+  const { user, subscription } = useUser();
+  const usePlay = (id: string) => {
+fetchSong(id);
   };
   return usePlay;
 };
