@@ -168,7 +168,7 @@ export const UploadModal = () => {
         placeholder:text-neutral-400
         disabled:cursor-not-allowed
         disabled:opacity-50
-        focus:outline-none' name="package" id="package"    {...register('package', { required: true })}>
+        focus:outline-none' id="package"    {...register('package', { required: true })}>
   <option value="free">Free</option>
   <option value="premium">Premium</option>
 </select>
