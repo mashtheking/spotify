@@ -17,7 +17,7 @@ export const useOnPlay = (songs: Song[]) => {
   const authModal = useAuthModal();
   const { user, subscription } = useUser();
   const usePlay = (id: string) => {
-    const { data, error } = await supabaseClient.from('songs').select('*').eq('id', id).single();
+    const { data, error } = supabaseClient.from('songs').select('*').eq('id', id).single();
 
       if (error) {
         alert(0);
