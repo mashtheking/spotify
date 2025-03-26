@@ -13,7 +13,7 @@ export const useOnPlay = (songs: Song[]) => {
 
 
 
-    const fetchSong = async () => {
+    const fetchSong = async (id: string) => {
 
       const [songD, setSong] = useState<Song | undefined>(undefined);
       const { data, error } = await supabaseClient.from('songs').select('*').eq('id', id).single();
@@ -26,7 +26,7 @@ export const useOnPlay = (songs: Song[]) => {
      
     };
 
-    fetchSong();
+    
 
 
 
@@ -36,6 +36,7 @@ export const useOnPlay = (songs: Song[]) => {
   const authModal = useAuthModal();
   const { user, subscription } = useUser();
   const usePlay = (id: string) => {
+    fetchSong(id);
     if (!user) {
       return authModal.onOpen();
     }
