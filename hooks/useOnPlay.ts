@@ -9,7 +9,7 @@ import { useGetSongById} from './useGetSongById';
 import { useState } from "react"
 
 export const useOnPlay = (songs: Song[]) => {
-  const [package, setPackage] = useState<boolean>(false) ;
+  
   const supabaseClient = useSupabaseClient();
 
          const fetchSong = async (id: string) => {
