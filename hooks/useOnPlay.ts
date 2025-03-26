@@ -12,8 +12,8 @@ export const useOnPlay = (songs: Song[]) => {
   
   const supabaseClient = useSupabaseClient();
 
-         const fetchSong = async (id: string) => {
-     const { data, error } = await supabaseClient.from('songs').select('*').eq('id', id).single();
+         const fetchSong = async (io: string) => {
+     const { data, error } = await supabaseClient.from('songs').select('*').eq('id', io).single();
 
       if (error) {
         return
@@ -26,8 +26,7 @@ export const useOnPlay = (songs: Song[]) => {
       return subscribeModal.onOpen();
     }
 
-       player.setId(id);
-    player.setIds(songs.map((song) => song.id));
+     
      }
   
 
@@ -38,7 +37,9 @@ export const useOnPlay = (songs: Song[]) => {
   const authModal = useAuthModal();
   const { user, subscription } = useUser();
   const usePlay = (id: string) => {
-fetchSong(id);
+fetchSong(io);
+      player.setId(id);
+    player.setIds(songs.map((song) => song.id));
   };
 
   return usePlay;
