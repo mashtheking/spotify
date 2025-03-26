@@ -1,3 +1,4 @@
+"use strict"
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { Song } from '@/types';
 import { usePlayer } from './usePlayer';
