@@ -40,7 +40,7 @@ export const useOnPlay = (songs: Song[]) => {
   
 
 
-fetchSong();
+
       player.setId(id);
     player.setIds(songs.map((song) => song.id));
   };
