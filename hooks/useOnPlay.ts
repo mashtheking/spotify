@@ -7,6 +7,7 @@ import { useSubscribeModal } from './useSubscribeModal';
 import { useGetSongById} from './useGetSongById';
 
 export const useOnPlay = (songs: Song[]) => {
+  const package = "";
   const supabaseClient = useSupabaseClient();
       const fetchSong = async (id: string) => {
        const { data, error } = await supabaseClient.from('songs').select('*').eq('id', id).single();
@@ -14,10 +15,8 @@ export const useOnPlay = (songs: Song[]) => {
       if (error) {
         return
       }
-      
-     if (!user) {
-      return authModal.onOpen();
-    }
+      const package = data.package;
+    
     };
 
     
@@ -32,8 +31,10 @@ export const useOnPlay = (songs: Song[]) => {
   const usePlay = (id: string) => {
    
 fetchSong(id);
-    
-    if (!subscription && data.package != 'free') {
+     if (!user) {
+      return authModal.onOpen();
+    }
+    if (!subscription && package != 'free') {
       return subscribeModal.onOpen();
     }
 
