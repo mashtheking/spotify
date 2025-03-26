@@ -9,13 +9,13 @@ import { useGetSongById} from './useGetSongById';
 
 export const useOnPlay = (songs: Song[]) => {
   const supabaseClient = useSupabaseClient();
-  
+        const [songD, setSong] = useState<Song | undefined>(undefined);
 
 
 
     const fetchSong = async (id: string) => {
 
-      const [songD, setSong] = useState<Song | undefined>(undefined);
+
       const { data, error } = await supabaseClient.from('songs').select('*').eq('id', id).single();
 
       if (error) {
