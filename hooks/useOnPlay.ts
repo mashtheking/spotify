@@ -14,7 +14,7 @@ export const useOnPlay = (songs: Song[]) => {
 
     const fetchSong = async () => {
 
-      const [song, setSong] = useState<Song | undefined>(undefined);
+      const [songD, setSong] = useState<Song | undefined>(undefined);
       const { songData, error } = await supabaseClient.from('songs').select('*').eq('id', id).single();
 
       if (error) {
@@ -40,7 +40,7 @@ export const useOnPlay = (songs: Song[]) => {
     }
 
     
-    if (!subscription && songData.package != 'free') {
+    if (!subscription && songD.package != 'free') {
       return subscribeModal.onOpen();
     }
     
