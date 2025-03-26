@@ -64,8 +64,8 @@ export const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
         <button
       className="
         transition 
-        opacity-0 
-        rounded-full 
+        
+        rounded-2xl
         flex 
         items-center
       bg-green-500 
@@ -73,9 +73,6 @@ export const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
         drop-shadow-md
         translate 
         translate-y-1/4
-        group-hover:opacity-100
-        group-hover:translate-y-0
-        hover:scale-110
         "
     >
       {data.package}
