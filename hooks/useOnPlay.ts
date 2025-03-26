@@ -6,18 +6,22 @@ import { useAuthModal } from './useAuthModal';
 import { useUser } from './useUser';
 import { useSubscribeModal } from './useSubscribeModal';
 import { useGetSongById} from './useGetSongById';
+import { useState } from "react"
 
 export const useOnPlay = (songs: Song[]) => {
-  const package = "";
+  const [package, setPackage] = useState<boolean>(false) ;
   const supabaseClient = useSupabaseClient();
-      const fetchSong = async (id: string) => {
+      
+  const fetchSong = async (id: string) => {
        const { data, error } = await supabaseClient.from('songs').select('*').eq('id', id).single();
 
       if (error) {
         return
       }
-      const package = data.package;
     
+      if(data.package=='free'){
+        setPackage(true)
+      }
     };
 
     
@@ -35,7 +39,7 @@ fetchSong(id);
      if (!user) {
       return authModal.onOpen();
     }
-    if (!subscription && package != 'free') {
+    if (!subscription && !package) {
       return subscribeModal.onOpen();
     }
 
