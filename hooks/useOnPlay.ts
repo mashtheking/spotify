@@ -15,11 +15,11 @@ export const useOnPlay = (songs: Song[]) => {
     if (!user) {
       return authModal.onOpen();
     }
-
-    if (!subscription) {
+const infor = await useGetSongById(id);
+    if (!subscription && info.package != 'free') {
       return subscribeModal.onOpen();
     }
-
+    
     player.setId(id);
     player.setIds(songs.map((song) => song.id));
   };
