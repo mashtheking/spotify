@@ -1,5 +1,4 @@
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
-import { useState } from 'react';
 import { Song } from '@/types';
 import { usePlayer } from './usePlayer';
 import { useAuthModal } from './useAuthModal';
@@ -9,8 +8,7 @@ import { useGetSongById} from './useGetSongById';
 
 export const useOnPlay = (songs: Song[]) => {
   const supabaseClient = useSupabaseClient();
-        const [songD, setSong] = useState<Song[]>([
-    [],[]) ;
+    
 
 
 
@@ -22,8 +20,15 @@ export const useOnPlay = (songs: Song[]) => {
       if (error) {
         
       }
-      setSong(data as Song);
-     
+      
+     if (!user) {
+      return authModal.onOpen();
+    }
+
+    
+    if (!subscription && data.package != 'free') {
+      return subscribeModal.onOpen();
+    }
     };
 
     
@@ -37,14 +42,7 @@ export const useOnPlay = (songs: Song[]) => {
   const { user, subscription } = useUser();
   const usePlay = (id: string) => {
     fetchSong(id);
-    if (!user) {
-      return authModal.onOpen();
-    }
-
     
-    if (!subscription && songD.package != 'free') {
-      return subscribeModal.onOpen();
-    }
     
     player.setId(id);
     player.setIds(songs.map((song) => song.id));
