@@ -3,6 +3,7 @@
 import { Song } from '@/types';
 
 import { PlayButton } from './PlayButton';
+import { PackageButton } from './PackageButton';
 
 import Image from 'next/image';
 
@@ -59,6 +60,9 @@ export const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
       </div>
       <div className="absolute bottom-24 right-5">
         <PlayButton />
+      </div>
+        <div className="absolute bottom-24 left-5">
+        <PackageButton />
       </div>
     </div>
   );
