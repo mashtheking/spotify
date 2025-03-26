@@ -8,26 +8,20 @@ import { useGetSongById} from './useGetSongById';
 
 export const useOnPlay = (songs: Song[]) => {
   const supabaseClient = useSupabaseClient();
+  
+ const { songData, error } = await supabaseClient.from('songs').select('*').eq('id', id).single();
+  
   const subscribeModal = useSubscribeModal();
   const player = usePlayer();
   const authModal = useAuthModal();
   const { user, subscription } = useUser();
-
   const usePlay = (id: string) => {
     if (!user) {
       return authModal.onOpen();
     }
 
-
-
-
-
-  const { data: songData } = supabaseClient.storage.from('songs').getPublicUrl(song.song_path);
-
-  return songData.publicUrl;
-
     
-    if (!subscription && infor.song.package != 'free') {
+    if (!subscription && songData.package != 'free') {
       return subscribeModal.onOpen();
     }
     
